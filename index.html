@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f4ff;
+    }
+    h1 { color: #4f46e5; }
+
+    .counter {
+      font-size: 72px;
+      font-weight: bold;
+      color: #4f46e5;
+      margin: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #4f46e5;
+      color: white;
+      transition: background 0.2s;
+    }
+
+    button:hover { background: #4338ca; }
+
+    #resetBtn {
+      background: #e11d48;
+    }
+    #resetBtn:hover { background: #be123c; }
+  </style>
+</head>
+<body>
+  <img src="GG.png" style ="width:80px;height:110px;" />
+  <h1>My Counter App</h1>
+  <p>Hello World</p>
+  <div class="counter" id="count">0</div>
+
+  <div class="buttons">
+    <button onclick="decrement()">−</button>
+    <button onclick="increment()">+</button>
+    <button id="resetBtn" onclick="reset()">Reset</button>
+  </div>
+
+  <!-- JavaScript goes here -->
+  <script>
+    let count = parseInt(localStorage.getItem("savedCount")) || 0; // JS variable: stores the number
+    function updateDisplay() 
+    {
+      localStorage.setItem("savedCount", count);
+      const display = document.getElementById("count");
+      display.textContent = count;
+      // Color changes based on value
+      if (count < 0) {
+      display.style.color = "#e11d48";  // red
+      } else if (count === 0) {
+      display.style.color = "#4f46e5";  // default purple
+      } else {
+      display.style.color = "#16a34a";  // green
+      }
+    }
+    function increment() {
+      count++; // Step 1: update the JS variable
+        updateDisplay();
+    }
+
+    function decrement() {
+      count--;
+        updateDisplay();
+    }
+
+    function reset() {
+      count = 0;
+        updateDisplay();
+    }
+    // Run once on page load to reflect saved value
+    updateDisplay();
+  </script>
+
+</body>
+</html>
