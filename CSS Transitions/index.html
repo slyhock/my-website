@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transitions</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      height: 100vh;
+      background: #f0f4ff;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: sans-serif;
+      font-size: 13px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    /* Each box transitions the same property but with different timing */
+    .ease     { background: #4f46e5; transition: background 0.4s ease; }
+    .linear   { background: #0891b2; transition: background 0.4s linear; }
+    .ease-in  { background: #16a34a; transition: background 0.4s ease-in; }
+    .ease-out { background: #d97706; transition: background 0.4s ease-out; }
+
+    .box:hover { background: #e11d48; }
+  </style>
+</head>
+<body>
+  <div class="box ease">ease</div>
+  <div class="box linear">linear</div>
+  <div class="box ease-in">ease-in</div>
+  <div class="box ease-out">ease-out</div>
+</body>
+</html>
